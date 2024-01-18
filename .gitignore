@@ -6,5 +6,5 @@ UST10-5/
 *.ipynb
 *.zip
 try.py
-__pycache__/
+**/**/__pycache__/
 
