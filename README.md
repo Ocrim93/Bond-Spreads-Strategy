@@ -8,8 +8,11 @@ By looking at pairs trading for 10Y vs 5Y US Treasury bonds. The strategy exploi
 
 Pipeline:
 	1. Download the data from Yahoo Finance 
+
 	2. Test for Stationarity
+
 		We use the Augmented Dickey Fuller test to check our data mean reverts.
+		
 	3. Compute Spread and Feature data.
 		We compute spread data, mean and Bollinger bands to understand support and resistance lines.
 	4. Plot/Save bond Yields 
