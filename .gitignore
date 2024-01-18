@@ -1,0 +1,5 @@
+__pycache__/
+*.ipynb
+*.zip
+try.py
+/*/__pycache__/

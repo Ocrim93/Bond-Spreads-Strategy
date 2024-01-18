@@ -1,5 +1,9 @@
 name: bond_env
 dependencies:
-	- python=3.10
-	- pandas 
-	- numpy
+  - python=3.10
+  - numpy
+  - pandas
+  - plotly
+  - kaleido
+  - pip:
+    - yfinance
