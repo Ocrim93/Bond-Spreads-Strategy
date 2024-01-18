@@ -5,17 +5,24 @@
 # Statistical Arbitrage 
 
 By looking at pairs trading for 10Y vs 5Y US Treasury bonds. The strategy exploits the stationary behavior of the spread, range bound and when there is high volatility.\
-Pipeline:\
-	1. Download the data from Yahoo Finance\
-	2. Test for Stationarity\
-		We use the Augmented Dickey Fuller test to check our data mean reverts.\
-	3. Compute Spread and Feature data.\
-		We compute spread data, mean and Bollinger bands to understand support and resistance lines.\
-	4. Plot/Save bond Yields\
-	5. Plot/Save Bond Spread \
-	6. Plot Bond spread returns to assess stationarity of bond spread returns   \
-
-
+Pipeline:
+##
+<ul>
+	<li>1. Download the data from Yahoo Finance</li>
+	<li>2. Test for Stationarity
+		<ul>
+			<li>We use the Augmented Dickey Fuller test to check our data mean reverts</li>
+		</ul>
+	</li>
+	<li>3. Compute Spread and Feature data.
+		<ul>
+			<li>We compute spread data, mean and Bollinger bands to understand support and resistance lines.</li>
+		</ul>
+	</li>
+	<li>Plot/Save bond Yields</li>
+	<li>Plot/Save Bond Spread </li>
+	<li>Plot Bond spread returns to assess stationarity of bond spread returns</li>
+</ul>
 
 # Theory
 	
