@@ -14,7 +14,7 @@ Pipeline:
 		We compute spread data, mean and Bollinger bands to understand support and resistance lines.
 	4. Plot/Save bond Yields 
 	5. Plot/Save Bond Spread 
-	6. Plot Bond spread returns to assess stationarity of bond spread returns    
+	6. Plot Bond spread returns to assess stationarity of bond spread returns   
 
 
 
