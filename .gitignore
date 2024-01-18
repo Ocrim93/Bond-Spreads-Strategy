@@ -1,5 +1,10 @@
-__pycache__/
+
+
+.DS_Store
+.ipynb_checkpoints/
+UST10-5/
 *.ipynb
 *.zip
 try.py
-/*/__pycache__/
+**/**/__pycache__/
+
