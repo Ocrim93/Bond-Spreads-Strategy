@@ -14,7 +14,7 @@ spread = Bond_Spread(
 				 years = 3)
 
 spread.compute_spread()
-
+spread.apply_trading_indicator('EMA', 20)
 print(spread.data)
 
 

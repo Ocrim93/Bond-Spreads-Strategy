@@ -26,7 +26,7 @@ Pipeline:
 
 # Theory
 	
-	A stationary process is a stochastic process whose unconditional joint probability distribution does not change when shifted in time.\
-	Consequently, mean and variance does not change over time. It may have seasonal cycles around the trend line, but overall it does not trend up not down.\
+A stationary process is a stochastic process whose unconditional joint probability distribution does not change when shifted in time.\
+Consequently, mean and variance does not change over time. It may have seasonal cycles around the trend line, but overall it does not trend up not down.\
 
-	Autoregressive model (AR(p)) is a representation of a type of random process. The assumption of the model is that the output variable depends linearly on its own values and on a stochastic term. Look at moving average model (MA(q)), autoregressive-moving-average model (ARMA(p,q)), autoregressive integrated moving average (ARIMA) models of time series, and GARCH(p,q)
+Autoregressive model (AR(p)) is a representation of a type of random process. The assumption of the model is that the output variable depends linearly on its own values and on a stochastic term. Look at moving average model (MA(q)), autoregressive-moving-average model (ARMA(p,q)), autoregressive integrated moving average (ARIMA) models of time series, and GARCH(p,q)
