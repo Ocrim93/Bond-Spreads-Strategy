@@ -4,6 +4,7 @@ from statsmodels.api import OLS
 from .plotting_lib import plot
 from .web_requests import  Yahoo_Web 
 from . import utilities
+from .Trading_Indicator_Class import Trading_Indicator
 
 
 class Bond_Spread():
@@ -68,10 +69,10 @@ class Bond_Spread():
 	def compute_spread(self):
 		self.avg_spread, self.data = Bond_Spread.Compute_Spread(self.data, self.long_duration_bond, self.short_duration_bond)
 
-	def apply_trading_indicator(self):
-		pass
-		
-
+	def apply_trading_indicator(self, trading_indicator : str , *args):
+		indicator = getattr(Trading_Indicator, trading_indicator)
+		self.data =  indicator(self.data, *args)
+			
 	def plotting(self):
 		label = f'{long_duration_bond} - {short_duration_bond}'
 		plot(self.data, label, 'Date','spread', label, average = self.avg_spread)
