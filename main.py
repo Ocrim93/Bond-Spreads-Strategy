@@ -1,6 +1,6 @@
 # US Treasury Spread Tickers and Chart Labels
-from Code.retrieve_web import  Yahoo_Web
-from Code import spreadr
+from Code.web_requests import  Yahoo_Web
+from Code.spread import Bond_Spread
 from Code import utilities
 
 utilities.create_folder()
@@ -8,12 +8,14 @@ utilities.create_folder()
 #label1 = '5Y - 2Y'
 bond_tickers = ['^IRX', '^FVX']
 
-df = Yahoo_Web.get_prices(bond_tickers, years =1 )
+spread = Bond_Spread(
+				 long_duration_bond  = bond_tickers[0],
+				 short_duration_bond= bond_tickers[1],
+				 years = 3)
 
-label = "{} - {}".format(bond_tickers[1],bond_tickers[0])
-adj_df = df.copy()['Adj Close']
-spread.compute_spread(adj_df,label)
+spread.compute_spread()
 
+print(spread.data)
 
 
 
