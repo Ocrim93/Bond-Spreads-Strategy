@@ -18,5 +18,6 @@ class Yahoo_Web():
 			start_date = end_date - dt.timedelta(days = years*365)
 		data = 	yf.download(tickers, start= start_date, end = end_date)
 		data.sort_index(  inplace =True)
+		data['Adj Close'].to_csv(f'./Input/{tickers[1]}-{tickers[0]}_{end_date}-{start_date}.csv')
 		return data['Adj Close']
 

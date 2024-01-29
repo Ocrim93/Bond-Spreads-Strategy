@@ -1,6 +1,7 @@
 import os
 from Code.debugging_method import write_log
 from Constant import PATH_folder
+import pandas as pd
 
 def create_folder():
 	# ---------- Create folder -----------
@@ -18,17 +19,21 @@ def import_excel_data(file_path, start_date = None , end_date = None):
 	else:
 		sheet_name = 0
 	# import data
-   
-	df = pd.read_excel(file_path, sheet_name=sheet_name)
+	if '.csv' in file_path:
+  		df = pd.read_csv(file_path)
+	else:	
+		df = pd.read_excel(file_path, sheet_name=sheet_name)
 	df.sort_values(by='Date', ignore_index= True,inplace=True)
     
 	start_date = df.loc[0,'Date']if start_date == None else start_date
 	end_date = df.loc[df.shape[0]-1 ,'Date'] if end_date == None else end_date 
     
 	# filter data to match our choosen date range
-	filtered_df = df[(df['Date'] >= start_date) & (df[DATE] <= end_date)]
+	filtered_df = df[(df['Date'] >= start_date) & (df['Date'] <= end_date)]
 	
 	# set date column as index
 	filtered_df.set_index('Date', inplace=True)
     
 	return filtered_df
+
+	
