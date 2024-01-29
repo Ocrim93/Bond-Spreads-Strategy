@@ -47,10 +47,10 @@ class Trading_Indicator():
     		Compute Bollinger Bands as a multiple of number of standard deviations specified by num_std hyper-parameter	
     	'''	
 		field = []
-		print(f'Bollinger_Bands {ema_col} - {std_col}')
+		print(f'Bollinger_Bands {mean_column} - {std_column}')
 		for i in num_std:
-			price_data[f'BB_UPPER{i}'] = price_data[ema_col] +  i*price_data[std_col] 
-			price_data[f'BB_LOWER{i}'] = price_data[ema_col] -  i*price_data[std_col] 
+			price_data[f'BB_UPPER{i}'] = price_data[mean_column] +  i*price_data[std_column] 
+			price_data[f'BB_LOWER{i}'] = price_data[mean_column] -  i*price_data[std_column] 
 			field.append((f'BB_UPPER{i}', f'BB_LOWER{i}'))
 
 		return price_data, field

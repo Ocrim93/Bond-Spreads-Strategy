@@ -36,22 +36,37 @@ print(GetFacebookInformation.info.history(start=startDate, end=endDate))
 #label1 = '5Y - 2Y'
 bond_tickers = ['^IRX', '^FVX']
 
-spread = Bond_Spread(data = './Input/data.csv',
+spread = Bond_Spread_return(data = './Input/data.csv',
 				 long_duration_bond  = bond_tickers[0],
 				 short_duration_bond= bond_tickers[1],
-				 years = 3)
-spread.plotting_yield()
+				 years = 1)
 spread.compute_spread()
+spread.plotting()
+'''
 spread.apply_trading_indicator('EMA' ,14)
 spread.apply_trading_indicator('EMA' ,50)
 spread.apply_trading_indicator('EMA' ,200)
 spread.apply_trading_indicator('STD' ,20)
 
-spread.apply_trading_indicator('Bollinger_Bands' )
+spread.apply_trading_indicator('Bollinger_Bands' , 'EMA_14', 'STD_20')
 #	def Bollinger_Bands(price_data : pd.DataFrame(), num_std : list[int] = [1], column = 'spread', mean_column = 'EMA', std_column = 'STD'):
+'''
 
+spread = Bond_Spread(data = './Input/data.csv',
+				 long_duration_bond  = bond_tickers[0],
+				 short_duration_bond= bond_tickers[1],
+				 years = 3)
+spread.compute_spread()
 spread.plotting()
 print(spread.data)
+
+
+
+# Define bond tickers
+# ^IRX is the 13 Week US Treasury Bill
+# ^FVX is the 5-Year US Treasury
+# ^TNX is the 10-Year US Treasury
+# ^TYX is the 30-Year US Treasury
 
 
 
