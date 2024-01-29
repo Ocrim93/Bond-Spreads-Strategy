@@ -1,6 +1,4 @@
-
-
-.DS_Store
+**/**/.DS_Store
 .ipynb_checkpoints/
 UST10-5/
 *.ipynb
