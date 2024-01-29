@@ -11,8 +11,8 @@ class Yahoo_Web():
 	def get_prices(tickers : Union[str,list], 
 					start_date :  dt.datetime = None,  
 					end_date : dt.datetime = None , 
-					years = int | None,
-					 ):
+					years = int | None):
+	
 		end_date =  dt.datetime.now() if end_date == None else end_date
 		if years != None:
 			start_date = end_date - dt.timedelta(days = years*365)

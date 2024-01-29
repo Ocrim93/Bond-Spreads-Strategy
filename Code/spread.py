@@ -58,9 +58,10 @@ class Bond_Spread():
 		
 		self.long_duration_bond = long_duration_bond
 		self.short_duration_bond = short_duration_bond
-		self.data =  self.retrieve_data(start_date,end_date, years)  if data == None else utilities.import_excel_data(data, start_date=start_date, end_date = end_date)
+		self.data =  self.retrieve_data(start_date,end_date, years)  if data == None else utilities.import_excel_data(data, start_date=start_date, end_date = end_date,years = years)
 		self.start_date = self.data.index[0] if start_date == None else start_date
 		self.end_date = self.data.index[-1] if end_date == None else end_date
+		self.label = f'{self.long_duration_bond} - {self.short_duration_bond}'
 
 		# Derived features
 		self.avg_spread = float()
@@ -81,8 +82,7 @@ class Bond_Spread():
 			self.trading_indicators.append(field)	
 			
 	def create_figure(self,trading_indicators):
-		label = f'{self.long_duration_bond} - {self.short_duration_bond}'
-		self.figure = plotting_lib.create_figure(self.data, label, 'Date','spread')
+		self.figure = plotting_lib.create_figure(self.data, self.label,'spread')
 		self.figure = plotting_lib.adding_horizontal_line(self.figure, self.avg_spread)
 		for ind in trading_indicators:
 			self.figure = plotting_lib.adding_line(self.figure, self.data, ind)
@@ -95,7 +95,7 @@ class Bond_Spread():
 		plotting_lib.plot(self.figure)
 
 	def plotting_yield(self):
-		self.figure = plotting_lib.create_figure(self.data,'yield',self.long_duration_bond)
+		self.figure = plotting_lib.create_figure(self.data,self.label,self.long_duration_bond)
 		self.figure = plotting_lib.adding_line(self.figure, self.data, self.short_duration_bond)
 		plotting_lib.plot(self.figure)
 
@@ -134,6 +134,7 @@ class Bond_Spread_return(Bond_Spread):
 				          years)
 
 		self.data = Bond_Spread_return.compute_return(self.data)
+		self.label = self.label + '_return'
 
 
 
