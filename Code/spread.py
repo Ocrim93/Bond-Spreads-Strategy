@@ -79,19 +79,20 @@ class Bond_Spread():
 		if isinstance(field,list):
 			self.trading_indicators += field
 		else:
-			self.trading_indicators.append(field)	
+			self.trading_indicators.append(field)
+		return 	field
 			
-	def create_figure(self,trading_indicators):
-		self.figure = plotting_lib.create_figure(self.data, self.label,'spread')
-		self.figure = plotting_lib.adding_horizontal_line(self.figure, self.avg_spread)
+	def create_figure(self,main,trading_indicators):
+		self.figure = plotting_lib.create_figure(self.data, self.label, main)
+		self.figure = plotting_lib.adding_horizontal_line(self.figure, self.data[main].mean())
 		for ind in trading_indicators:
 			self.figure = plotting_lib.adding_line(self.figure, self.data, ind)
 
 
-	def plotting(self, active_trading_indicators = None):
+	def plotting(self, main = 'spread', active_trading_indicators = None):
 		active_trading_indicators = self.trading_indicators  if active_trading_indicators == None else active_trading_indicators
 
-		self.create_figure(active_trading_indicators)
+		self.create_figure(main,active_trading_indicators)
 		plotting_lib.plot(self.figure)
 
 	def plotting_yield(self):
