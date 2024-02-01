@@ -40,8 +40,12 @@ def create_figure(	data,
 	
 	return figure	
 
-def adding_horizontal_line(figure, value):
-	figure.add_hline(y=value, line= {'color' : generator_colour() })
+def adding_horizontal_line(figure, value, name = 'avg'):
+	color = generator_colour() 
+	figure.add_hline(y=value, annotation_text='{:.4f}'.format(value), 
+		              annotation_position="bottom right",
+		              annotation_font_size=13,
+		              annotation_font_color=color ,line= {'color' :color })
 	return figure
 
 def adding_line(figure, data, field ):

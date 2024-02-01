@@ -34,7 +34,31 @@ print(GetFacebookInformation.info.history(start=startDate, end=endDate))
 
 
 #label1 = '5Y - 2Y'
-bond_tickers = ['^IRX', '^FVX']
+bond_tickers = [ '^TYX','^TNX']
+
+spread = Bond_Spread(
+				 long_duration_bond  = bond_tickers[0],
+				 short_duration_bond= bond_tickers[1],
+				 years = 3)
+spread.compute_spread()
+spread.apply_trading_indicator('EMA' ,14)
+#spread.apply_trading_indicator('EMA' ,50)
+#spread.apply_trading_indicator('EMA' ,200)
+spread.apply_trading_indicator('STD' ,20)
+spread.plotting()
+print(spread.data)
+price_data= spread.data
+#print((spread.data['EMA_14'] - spread.data['spread'])/spread.data['STD_20'])
+
+print((price_data['spread'] - price_data['EMA_14'])/price_data['STD_20'])
+
+fields = spread.apply_trading_indicator('Z_score', 'EMA_14', 'STD_20')
+fields = [i for i in fields if 'Z_score' not in i ]
+print(fields)
+spread.plotting('Z_score', active_trading_indicators = fields)
+
+
+f
 
 spread = Bond_Spread_return(data = './Input/data.csv',
 				 long_duration_bond  = bond_tickers[0],
@@ -52,13 +76,6 @@ spread.apply_trading_indicator('Bollinger_Bands' , 'EMA_14', 'STD_20')
 #	def Bollinger_Bands(price_data : pd.DataFrame(), num_std : list[int] = [1], column = 'spread', mean_column = 'EMA', std_column = 'STD'):
 '''
 
-spread = Bond_Spread(data = './Input/data.csv',
-				 long_duration_bond  = bond_tickers[0],
-				 short_duration_bond= bond_tickers[1],
-				 years = 3)
-spread.compute_spread()
-spread.plotting()
-print(spread.data)
 
 
 
