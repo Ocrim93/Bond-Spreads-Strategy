@@ -115,7 +115,6 @@ class Bond_Spread_return(Bond_Spread):
 		for bond in fields:
 			return_df[bond] = data[bond].pct_change()
 			return_df[bond][0] = 0
-			print(return_df)
 		
 		return return_df
 

@@ -4,7 +4,7 @@
 	-- conda env create -f requirements.yml
 # Statistical Arbitrage 
 
-By looking at pairs trading for 10Y vs 5Y US Treasury bonds. The strategy exploits the stationary behavior of the spread, range bound and when there is high volatility.\
+By looking at pairs trading for 10Y vs 5Y US Treasury bonds. The strategy exploits the stationary behavior of the spread, range bound and when there is high volatility.\ The risk measure for yield curve spread trades is DV01 (dollar value of a basis point). As the back leg DV01 is greater than the front lef DV01, one must calculate a hedge ratio to result in a DV01 neutral position. 
 Pipeline:
 ##
 <ol>
